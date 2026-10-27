@@ -20,10 +20,33 @@ subtotal = 0
 firstExpense = input("\nFirst Expense? ")
 amount1 = float(input("Amount? "))
 
+# Installment 4
+if amount1 > 200:
+    print("\tHuge Expense - are you sure?")
+elif amount1 > 100:
+    print("\tBig Expense.")
+elif amount1 > 50:
+    print("\tModerate Expense.")
+else:
+    print("\tSmall expense.")
+
 subtotal+=amount1
 
 secondExpense = input("Second Expense? ")
 amount2 = float(input("Amount? "))
+
+# Installment 4
+if amount2 > 200:
+    print("\tHuge Expense - are you sure?")
+elif amount2 > 100:
+    print("\tBig Expense.")
+elif amount2 > 50:
+    print("\tModerate Expense.")
+else:
+    print("\tSmall expense.")
+
+if amount1 > 100 and amount2 > 100:
+    print("Two big expenses in a row - slow down!")
 
 subtotal+=amount2
 
@@ -32,7 +55,7 @@ budget = float(input("Your budget? "))
 tax = subtotal * (tax_percent / 100)
 
 total = subtotal + tax
-over_budget = total > budget
+over_budget = total - budget
 left = budget - total
 
 print("-" * 40)
@@ -43,7 +66,14 @@ print(f"Subtotal:\t\t${subtotal}")
 print(f"Average:\t\t${subtotal / 2}")
 print(f"Tax ({tax_percent}%):\t\t${tax}")
 print(f"Grand total:\t\t${total}")
-print(f"Over budget?\t\t{over_budget}")
-print(f"Left in the budget:\t${left}")
+
+# Installment 4
+if total > budget:
+    print(f"Over budget by ${over_budget}!")
+elif total > budget * 0.90:
+    print(f"Careful: only ${left} left.")
+else:
+    print(f"Within budget: ${left} left.")
+
 print("-" * 40)
-print("Made by: John Kervin M. Ganzon | Installment 3")
+print("Made by: John Kervin M. Ganzon | Installment 4")
